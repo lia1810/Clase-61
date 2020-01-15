@@ -5,31 +5,31 @@
 // foto de usuario le de likes solo a ese usuario. 
 
 const usuarios = [
-  {
-      nombre: "Pepita Gomez",
-      descripcion: "Maquetadora",
-      foto: "img/foto.jpeg"
-  },
-  {
-      nombre: "Mariquita Thompson",
-      descripcion: "Cantante de himno",
-      foto: "img/foto.jpeg"
-  },
-  {
-      nombre: "Pancracia Williams",
-      descripcion: "Tenista",
-      foto: "img/foto.jpeg"
-  },
-  {
-      nombre: "Trufa Rodriguez Larreta",
-      descripcion: "Cantante de feliz cumpleanos",
-      foto: "img/foto.jpeg"
-  },
+    {
+        nombre: "Pepita Gomez",
+        descripcion: "Maquetadora",
+        foto: "img/foto.jpeg"
+    },
+    {
+        nombre: "Mariquita Thompson",
+        descripcion: "Cantante de himno",
+        foto: "img/foto.jpeg"
+    },
+    {
+        nombre: "Pancracia Williams",
+        descripcion: "Tenista",
+        foto: "img/foto.jpeg"
+    },
+    {
+        nombre: "Trufa Rodriguez Larreta",
+        descripcion: "Cantante de feliz cumpleanos",
+        foto: "img/foto.jpeg"
+    },
 ]
 
 let cards = ""
 for (let i = 0; i < usuarios.length; i++) {
-  cards += `<article class="card">
+    cards += `<article class="card">
 <div class="imagen">
   <img src="https://placekeanu.com/400" alt="">
 </div>
@@ -49,33 +49,32 @@ console.log(contenedorCero)
 contenedorCero.innerHTML = cards
 
 
-
-
 const imagen = document.querySelectorAll(".imagen")
 const corazon = document.querySelectorAll(".fa.fa-heart")
 const likes = document.querySelectorAll("#likes")
 for (let i = 0; i < usuarios.length; i++) {
 
-  imagen[i].onclick = () => {
-      corazon[i].classList.add("rojo")
-      let cantidadDeLikes = Number(likes[i].textContent)
-      cantidadDeLikes++
-      likes[i].textContent = cantidadDeLikes
-  }
+    imagen[i].onclick = () => {
+        corazon[i].classList.add("rojo")
+        let cantidadDeLikes = Number(likes[i].textContent)
+        cantidadDeLikes++
+        likes[i].textContent = cantidadDeLikes
+    }
 
-  corazon.onclick = () => {
-      if (likes[i].textContent > "0") {
-          let cantidadDeLikes = Number(likes[i].textContent)
-          cantidadDeLikes--
-          likes.textContent = cantidadDeLikes
-      }
-      console.log(likes[i].textContent)
-      if (likes[i].textContent === "0") {
-          corazon.classList.remove("rojo")
-      }
-      else {
-          corazon.classList.add("rojo")
-      }
+    corazon[i].onclick = () => {
+        if (likes[i].textContent > "0") {
+            let cantidadDeLikes = Number(likes[i].textContent)
+            cantidadDeLikes--
+            likes[i].textContent = cantidadDeLikes
+        }
+        console.log(likes[i].textContent)
 
-  }
+        if (likes[i].textContent === "0") {
+            corazon[i].classList.remove("rojo")
+        }
+        else {
+            corazon[i].classList.add("rojo")
+        }
+
+    }
 }
